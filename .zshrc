@@ -74,7 +74,7 @@ function git_push() {
 }
 
 function prompt_char() {
-    git branch >/dev/null 2>/dev/null && git symbolic-ref --short HEAD | tr -d '\n' && \
+    git branch >/dev/null 2>/dev/null && git symbolic-ref --short HEAD 2>/dev/null | tr -d '\n' && \
     echo $(git_dirty) | tr -d '\n' && echo $(git_push) | tr -d '\n' && echo '' && echo 'µ' && return
 
     hg root >/dev/null 2>/dev/null && echo '☿' && return
