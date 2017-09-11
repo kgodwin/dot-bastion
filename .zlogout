@@ -1,2 +1,2 @@
-`ssh-add -D`
-`ssh-agent -k`
+`ssh-add -D` 2> /dev/null
+`ssh-agent -k` 2> /dev/null
