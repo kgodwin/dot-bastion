@@ -1,4 +1,4 @@
-### dot-bastion - opinionated dotfiles under 150 lines
+### dot-bastion - opinionated dotfiles
 
 * I wanted something short and simple that covered my usage. 
 * I will only resolve issues with the most recent Ubuntu LTS release as its my personal setup. [16.04]
