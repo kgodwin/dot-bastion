@@ -34,8 +34,8 @@ hcolor=230 # highlight color
 scolor=123 # secondary color
 dcolor=225 # default color
 acolor=196 # call-to-action color
-#color_names=(014 015 039 051 082 111 009 112 113 114 115 116 126 013 132 133 161 134 135 160 012 136 137 141 013 142 143 144 145 146 147 117 118 119 010 120 121 152 153 154 155 122 157 159 011 191 192 193 194 195 226 227 228 )
-color_names=(051 105 111 123 153 141 129 160 166 184 226 208 183 224 249 081 087 051 039 046 082)
+color_names=(014 015 039 051 082 111 009 112 113 114 115 116 126 013 132 133 161 134 135 160 012 136 137 141 013 142 143 144 145 146 147 117 118 119 010 120 121 152 153 154 155 122 157 159 011 191 192 193 194 195 226 227 228 )
+#color_names=(051 105 111 123 153 141 129 160 166 184 226 208 183 224 249 081 087 051 039 046 082)
 color_names_len=$color_names[(I)$color_names[-1]]
 
 source "$HOME/.zcustom" # load this here to allow color overrides
@@ -43,7 +43,7 @@ function colorize_string() { # hash the string argument to colorize
     local ch=$(echo $1 | sha1sum | python -c 'print(long(raw_input()[:40], 16)%'${color_names_len}')')
     echo $color_names[$((ch+1))]
 }
-echo $(echo $(hostname) | sha1sum | python -c 'print(long(raw_input()[:40], 16)%'${color_names_len}')') # testing color index
+#echo $(echo $(hostname) | sha1sum | python -c 'print(long(raw_input()[:40], 16)%'${color_names_len}')') # testing color index
 hostcolor=$(colorize_string $(hostname))
 
 function ssh_add_all() {
@@ -53,7 +53,7 @@ function ssh_add_all() {
     keys=("${(@f)$(ls "/home/$USERNAME/.ssh" | grep "id_*" | grep -v "\.pub")}")
     for k in $keys; do
         if [ "$k" != "" ]; then
-            `ssh-add /home/$USERNAME/.ssh/$k`
+           `ssh-add /home/$USERNAME/.ssh/$k`
         fi
     done 
 }
